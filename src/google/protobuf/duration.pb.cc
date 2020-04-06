@@ -104,9 +104,12 @@ Duration::Duration(const Duration& from)
 }
 
 void Duration::SharedCtor() {
-  ::memset(&seconds_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&nanos_) -
-      reinterpret_cast<char*>(&seconds_)) + sizeof(nanos_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(Duration, seconds_),
+    0,
+    offsetof(Duration, nanos_) - offsetof(Duration, seconds_)
+      + sizeof(nanos_)
+  );
 }
 
 Duration::~Duration() {

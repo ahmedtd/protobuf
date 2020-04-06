@@ -104,9 +104,12 @@ Timestamp::Timestamp(const Timestamp& from)
 }
 
 void Timestamp::SharedCtor() {
-  ::memset(&seconds_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&nanos_) -
-      reinterpret_cast<char*>(&seconds_)) + sizeof(nanos_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(Timestamp, seconds_),
+    0,
+    offsetof(Timestamp, nanos_) - offsetof(Timestamp, seconds_)
+      + sizeof(nanos_)
+  );
 }
 
 Timestamp::~Timestamp() {

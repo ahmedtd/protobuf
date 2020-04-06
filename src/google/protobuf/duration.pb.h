@@ -6,6 +6,7 @@
 
 #include <limits>
 #include <string>
+#include <cstddef>
 
 #include <google/protobuf/port_def.inc>
 #if PROTOBUF_VERSION < 3011000

@@ -405,9 +405,12 @@ Type::Type(const Type& from)
 void Type::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Type_google_2fprotobuf_2ftype_2eproto.base);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&source_context_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&syntax_) -
-      reinterpret_cast<char*>(&source_context_)) + sizeof(syntax_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(Type, source_context_),
+    0,
+    offsetof(Type, syntax_) - offsetof(Type, source_context_)
+      + sizeof(syntax_)
+  );
 }
 
 Type::~Type() {
@@ -796,9 +799,12 @@ void Field::SharedCtor() {
   type_url_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   json_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   default_value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&kind_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&packed_) -
-      reinterpret_cast<char*>(&kind_)) + sizeof(packed_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(Field, kind_),
+    0,
+    offsetof(Field, packed_) - offsetof(Field, kind_)
+      + sizeof(packed_)
+  );
 }
 
 Field::~Field() {
@@ -1281,9 +1287,12 @@ Enum::Enum(const Enum& from)
 void Enum::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Enum_google_2fprotobuf_2ftype_2eproto.base);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&source_context_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&syntax_) -
-      reinterpret_cast<char*>(&source_context_)) + sizeof(syntax_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(Enum, source_context_),
+    0,
+    offsetof(Enum, syntax_) - offsetof(Enum, source_context_)
+      + sizeof(syntax_)
+  );
 }
 
 Enum::~Enum() {

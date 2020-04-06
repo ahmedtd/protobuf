@@ -2602,9 +2602,12 @@ void MessageGenerator::GenerateConstructorBody(io::Printer* printer,
         "  reinterpret_cast<char*>(&$first$_)) + sizeof($last$_));\n";
   } else {
     pod_template =
-        "::memset(&$first$_, 0, static_cast<size_t>(\n"
-        "    reinterpret_cast<char*>(&$last$_) -\n"
-        "    reinterpret_cast<char*>(&$first$_)) + sizeof($last$_));\n";
+        "::memset(\n"
+        "  reinterpret_cast<char*>(this) + offsetof($classname$, $first$_),\n"
+        "  0,\n"
+        "  offsetof($classname$, $last$_) - offsetof($classname$, $first$_)\n"
+        "    + sizeof($last$_)\n"
+        ");\n";
   }
 
   for (int i = 0; i < optimized_order_.size(); ++i) {

@@ -1681,9 +1681,12 @@ void FileDescriptorProto::SharedCtor() {
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   package_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   syntax_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&options_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&source_code_info_) -
-      reinterpret_cast<char*>(&options_)) + sizeof(source_code_info_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(FileDescriptorProto, options_),
+    0,
+    offsetof(FileDescriptorProto, source_code_info_) - offsetof(FileDescriptorProto, options_)
+      + sizeof(source_code_info_)
+  );
 }
 
 FileDescriptorProto::~FileDescriptorProto() {
@@ -2299,9 +2302,12 @@ DescriptorProto_ExtensionRange::DescriptorProto_ExtensionRange(const DescriptorP
 
 void DescriptorProto_ExtensionRange::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_DescriptorProto_ExtensionRange_google_2fprotobuf_2fdescriptor_2eproto.base);
-  ::memset(&options_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&end_) -
-      reinterpret_cast<char*>(&options_)) + sizeof(end_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(DescriptorProto_ExtensionRange, options_),
+    0,
+    offsetof(DescriptorProto_ExtensionRange, end_) - offsetof(DescriptorProto_ExtensionRange, options_)
+      + sizeof(end_)
+  );
 }
 
 DescriptorProto_ExtensionRange::~DescriptorProto_ExtensionRange() {
@@ -2588,9 +2594,12 @@ DescriptorProto_ReservedRange::DescriptorProto_ReservedRange(const DescriptorPro
 }
 
 void DescriptorProto_ReservedRange::SharedCtor() {
-  ::memset(&start_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&end_) -
-      reinterpret_cast<char*>(&start_)) + sizeof(end_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(DescriptorProto_ReservedRange, start_),
+    0,
+    offsetof(DescriptorProto_ReservedRange, end_) - offsetof(DescriptorProto_ReservedRange, start_)
+      + sizeof(end_)
+  );
 }
 
 DescriptorProto_ReservedRange::~DescriptorProto_ReservedRange() {
@@ -3694,9 +3703,12 @@ void FieldDescriptorProto::SharedCtor() {
   type_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   default_value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   json_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&options_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&proto3_optional_) -
-      reinterpret_cast<char*>(&options_)) + sizeof(proto3_optional_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(FieldDescriptorProto, options_),
+    0,
+    offsetof(FieldDescriptorProto, proto3_optional_) - offsetof(FieldDescriptorProto, options_)
+      + sizeof(proto3_optional_)
+  );
   label_ = 1;
   type_ = 1;
 }
@@ -4539,9 +4551,12 @@ EnumDescriptorProto_EnumReservedRange::EnumDescriptorProto_EnumReservedRange(con
 }
 
 void EnumDescriptorProto_EnumReservedRange::SharedCtor() {
-  ::memset(&start_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&end_) -
-      reinterpret_cast<char*>(&start_)) + sizeof(end_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(EnumDescriptorProto_EnumReservedRange, start_),
+    0,
+    offsetof(EnumDescriptorProto_EnumReservedRange, end_) - offsetof(EnumDescriptorProto_EnumReservedRange, start_)
+      + sizeof(end_)
+  );
 }
 
 EnumDescriptorProto_EnumReservedRange::~EnumDescriptorProto_EnumReservedRange() {
@@ -5201,9 +5216,12 @@ EnumValueDescriptorProto::EnumValueDescriptorProto(const EnumValueDescriptorProt
 void EnumValueDescriptorProto::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_EnumValueDescriptorProto_google_2fprotobuf_2fdescriptor_2eproto.base);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&options_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&number_) -
-      reinterpret_cast<char*>(&options_)) + sizeof(number_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(EnumValueDescriptorProto, options_),
+    0,
+    offsetof(EnumValueDescriptorProto, number_) - offsetof(EnumValueDescriptorProto, options_)
+      + sizeof(number_)
+  );
 }
 
 EnumValueDescriptorProto::~EnumValueDescriptorProto() {
@@ -5858,9 +5876,12 @@ void MethodDescriptorProto::SharedCtor() {
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   input_type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   output_type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&options_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&server_streaming_) -
-      reinterpret_cast<char*>(&options_)) + sizeof(server_streaming_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(MethodDescriptorProto, options_),
+    0,
+    offsetof(MethodDescriptorProto, server_streaming_) - offsetof(MethodDescriptorProto, options_)
+      + sizeof(server_streaming_)
+  );
 }
 
 MethodDescriptorProto::~MethodDescriptorProto() {
@@ -6370,9 +6391,12 @@ void FileOptions::SharedCtor() {
   php_namespace_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   php_metadata_namespace_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ruby_package_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&java_multiple_files_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&deprecated_) -
-      reinterpret_cast<char*>(&java_multiple_files_)) + sizeof(deprecated_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(FileOptions, java_multiple_files_),
+    0,
+    offsetof(FileOptions, deprecated_) - offsetof(FileOptions, java_multiple_files_)
+      + sizeof(deprecated_)
+  );
   optimize_for_ = 1;
   cc_enable_arenas_ = true;
 }
@@ -7249,9 +7273,12 @@ MessageOptions::MessageOptions(const MessageOptions& from)
 
 void MessageOptions::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_MessageOptions_google_2fprotobuf_2fdescriptor_2eproto.base);
-  ::memset(&message_set_wire_format_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&map_entry_) -
-      reinterpret_cast<char*>(&message_set_wire_format_)) + sizeof(map_entry_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(MessageOptions, message_set_wire_format_),
+    0,
+    offsetof(MessageOptions, map_entry_) - offsetof(MessageOptions, message_set_wire_format_)
+      + sizeof(map_entry_)
+  );
 }
 
 MessageOptions::~MessageOptions() {
@@ -7609,9 +7636,12 @@ FieldOptions::FieldOptions(const FieldOptions& from)
 
 void FieldOptions::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_FieldOptions_google_2fprotobuf_2fdescriptor_2eproto.base);
-  ::memset(&ctype_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&jstype_) -
-      reinterpret_cast<char*>(&ctype_)) + sizeof(jstype_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(FieldOptions, ctype_),
+    0,
+    offsetof(FieldOptions, jstype_) - offsetof(FieldOptions, ctype_)
+      + sizeof(jstype_)
+  );
 }
 
 FieldOptions::~FieldOptions() {
@@ -8245,9 +8275,12 @@ EnumOptions::EnumOptions(const EnumOptions& from)
 
 void EnumOptions::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_EnumOptions_google_2fprotobuf_2fdescriptor_2eproto.base);
-  ::memset(&allow_alias_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&deprecated_) -
-      reinterpret_cast<char*>(&allow_alias_)) + sizeof(deprecated_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(EnumOptions, allow_alias_),
+    0,
+    offsetof(EnumOptions, deprecated_) - offsetof(EnumOptions, allow_alias_)
+      + sizeof(deprecated_)
+  );
 }
 
 EnumOptions::~EnumOptions() {
@@ -9073,9 +9106,12 @@ MethodOptions::MethodOptions(const MethodOptions& from)
 
 void MethodOptions::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_MethodOptions_google_2fprotobuf_2fdescriptor_2eproto.base);
-  ::memset(&deprecated_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&idempotency_level_) -
-      reinterpret_cast<char*>(&deprecated_)) + sizeof(idempotency_level_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(MethodOptions, deprecated_),
+    0,
+    offsetof(MethodOptions, idempotency_level_) - offsetof(MethodOptions, deprecated_)
+      + sizeof(idempotency_level_)
+  );
 }
 
 MethodOptions::~MethodOptions() {
@@ -9693,9 +9729,12 @@ void UninterpretedOption::SharedCtor() {
   identifier_value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   string_value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   aggregate_value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&positive_int_value_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&double_value_) -
-      reinterpret_cast<char*>(&positive_int_value_)) + sizeof(double_value_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(UninterpretedOption, positive_int_value_),
+    0,
+    offsetof(UninterpretedOption, double_value_) - offsetof(UninterpretedOption, positive_int_value_)
+      + sizeof(double_value_)
+  );
 }
 
 UninterpretedOption::~UninterpretedOption() {
@@ -10718,9 +10757,12 @@ GeneratedCodeInfo_Annotation::GeneratedCodeInfo_Annotation(const GeneratedCodeIn
 void GeneratedCodeInfo_Annotation::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_GeneratedCodeInfo_Annotation_google_2fprotobuf_2fdescriptor_2eproto.base);
   source_file_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&begin_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&end_) -
-      reinterpret_cast<char*>(&begin_)) + sizeof(end_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(GeneratedCodeInfo_Annotation, begin_),
+    0,
+    offsetof(GeneratedCodeInfo_Annotation, end_) - offsetof(GeneratedCodeInfo_Annotation, begin_)
+      + sizeof(end_)
+  );
 }
 
 GeneratedCodeInfo_Annotation::~GeneratedCodeInfo_Annotation() {

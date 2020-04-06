@@ -232,9 +232,12 @@ void Api::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Api_google_2fprotobuf_2fapi_2eproto.base);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&source_context_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&syntax_) -
-      reinterpret_cast<char*>(&source_context_)) + sizeof(syntax_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(Api, source_context_),
+    0,
+    offsetof(Api, syntax_) - offsetof(Api, source_context_)
+      + sizeof(syntax_)
+  );
 }
 
 Api::~Api() {
@@ -647,9 +650,12 @@ void Method::SharedCtor() {
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   request_type_url_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   response_type_url_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&request_streaming_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&syntax_) -
-      reinterpret_cast<char*>(&request_streaming_)) + sizeof(syntax_));
+  ::memset(
+    reinterpret_cast<char*>(this) + offsetof(Method, request_streaming_),
+    0,
+    offsetof(Method, syntax_) - offsetof(Method, request_streaming_)
+      + sizeof(syntax_)
+  );
 }
 
 Method::~Method() {
